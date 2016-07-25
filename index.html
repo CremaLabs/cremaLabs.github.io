@@ -59,7 +59,35 @@
 <a id="api-endpoints-1" class="anchor" href="#api-endpoints-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API Endpoints</h2>
 
 <h3>
-<a id="user" class="anchor" href="#user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User</h3>
+<a id="auth" class="anchor" href="#auth" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Auth</h3>
+
+<h4>
+<a id="post-v1authlogin-request-inputs-username--password" class="anchor" href="#post-v1authlogin-request-inputs-username--password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>Post /v1/auth/login</code> Request Inputs: username &amp; password</h4>
+
+<h4>
+<a id="use-authlocal-local-authentication-strategy-configpassportjs-to-check-whether-the-username-and-password-entered-match-to-a-known-user-if-a-user-match-is-found-use-authctrllogin-authauthcontrollerjs-to-create-a-jwt-token-and-respond-to-the-client-with-user-data-and-token-to-be-stored-in-the-clients-local-storage" class="anchor" href="#use-authlocal-local-authentication-strategy-configpassportjs-to-check-whether-the-username-and-password-entered-match-to-a-known-user-if-a-user-match-is-found-use-authctrllogin-authauthcontrollerjs-to-create-a-jwt-token-and-respond-to-the-client-with-user-data-and-token-to-be-stored-in-the-clients-local-storage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use <code>authLocal</code>, local authentication strategy (/config/passport.js), to check whether the username and password entered match to a known user. If a user match is found, use <code>AuthCtrl.login</code> (/auth/auth.controller.js) to create a jwt token and respond to the client with user data and token to be stored in the client's local storage.</h4>
+
+<p>​</p>
+
+<h4>
+<a id="post-v1authsignup-request-inputs-full-name-email-username-password" class="anchor" href="#post-v1authsignup-request-inputs-full-name-email-username-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>Post /v1/auth/signup</code> Request Inputs: full name, email, username &amp;password</h4>
+
+<h4>
+<a id="use-authctrladduser-authauthcontrollerjs-to" class="anchor" href="#use-authctrladduser-authauthcontrollerjs-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use <code>AuthCtrl.addUser</code> (/auth/auth.controller.js) to:</h4>
+
+<ul>
+<li>Hash the entered password</li>
+<li>Create a new user in the database</li>
+<li>Create jwt token</li>
+<li>Respond to user with the user data and token to be stored in local storage</li>
+</ul>
+
+<h4>
+<a id="post-v1authchecktokenrequest-inputs-authorization-header-must-be-set-to-jwt-clientjwtfromstorage" class="anchor" href="#post-v1authchecktokenrequest-inputs-authorization-header-must-be-set-to-jwt-clientjwtfromstorage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>Post /v1/auth/checkToken</code>Request Inputs: Authorization header must be set to <code>JWT clientJWTFromStorage</code>
+</h4>
+
+<h4>
+<a id="use-jwt-authentication-strategy-configpassportjs-to-extract-the-jwt-token-from-the-request-authentication-header-and-decode-it-search-the-database-for-a-user-matching-the-user-info-specified-in-the-passed-jwt-payload-if-a-user-match-is-found-use-authctrlchecktokensuccess-authauthcontrollerjs-to-respond-to-the-client-with-affirmation-of-success" class="anchor" href="#use-jwt-authentication-strategy-configpassportjs-to-extract-the-jwt-token-from-the-request-authentication-header-and-decode-it-search-the-database-for-a-user-matching-the-user-info-specified-in-the-passed-jwt-payload-if-a-user-match-is-found-use-authctrlchecktokensuccess-authauthcontrollerjs-to-respond-to-the-client-with-affirmation-of-success" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use <code>jwt authentication strategy</code> (/config/passport.js) to extract the jwt token from the request authentication header and decode it. Search the database for a user matching the user info specified in the passed jwt payload. ​If a user match is found, use <code>AuthCtrl.checkTokenSuccess</code> (/auth/auth.controller.js) to respond to the client with affirmation of success.</h4>
 
 <h3>
 <a id="metrics" class="anchor" href="#metrics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Metrics</h3>
